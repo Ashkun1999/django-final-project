@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register - Task Manager{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="card-title mb-0 text-center">Create an Account</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        
+                        {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <p><strong>There were errors with your submission:</strong></p>
+                            {{ form.non_field_errors }}
+                        </div>
+                        {% endif %}
+                        
+                        {{ form|crispy }}
+                        
+                        <div class="card mb-3">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0">Password Requirements</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="mb-0">
+                                    <li>Your password must contain at least 8 characters</li>
+                                    <li>Your password can't be too similar to your other personal information</li>
+                                    <li>Your password can't be a commonly used password</li>
+                                    <li>Your password can't be entirely numeric</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    Already have an account? <a href="{% url 'tasks:login' %}">Log in here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

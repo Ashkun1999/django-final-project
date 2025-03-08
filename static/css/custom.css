@@ -1,0 +1,47 @@
+/* Custom styles for the application */
+
+/* Feature icon styles */
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    background-color: #f8f9fa;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: #6c757d;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.feature-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    color: #0d6efd;
+    background-color: #e9ecef;
+}
+
+/* Feature container */
+.feature-box {
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+.feature-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.feature-description {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+

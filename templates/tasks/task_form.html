@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {% if form.instance.id %}
+    Edit Task
+  {% else %}
+    Create New Task
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0">
+            {% if form.instance.id %}
+              Edit Task
+            {% else %}
+              Create New Task
+            {% endif %}
+          </h3>
+        </div>
+        <div class="card-body">
+          <form method="post" novalidate>
+            {% csrf_token %}
+            
+            {{ form|crispy }}
+            
+            <div class="mt-4 d-flex justify-content-between">
+              <a href="{% url 'tasks:task-list' %}" class="btn btn-secondary">
+                <i class="fas fa-times"></i> Cancel
+              </a>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-save"></i> 
+                {% if form.instance.id %}
+                  Update Task
+                {% else %}
+                  Create Task
+                {% endif %}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Client-side validation
+  (function() {
+    'use strict';
+    
+    // Fetch all forms that we want to apply custom validation to
+    var forms = document.querySelectorAll('.needs-validation');
+    
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms).forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>
+{% endblock %}
+

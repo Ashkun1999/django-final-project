@@ -1,5 +1,8 @@
 # Task Management Application
 
+Github Repo link [https://github.com/Ashkun1999/django-final-project](https://github.com/Ashkun1999/django-final-project) <br />
+Render Link: [https://django-final-project-5ruf.onrender.com/](https://django-final-project-5ruf.onrender.com/) <br />
+
 ## Project Overview
 
 This is a web-based task management application built with Django. The application allows users to create, assign, and track tasks in a collaborative environment. It provides a simple and intuitive interface for managing tasks, setting priorities, and tracking progress toward completion.
